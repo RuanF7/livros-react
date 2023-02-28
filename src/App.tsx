@@ -1,7 +1,7 @@
 import  { useState } from 'react';
 import { Editora } from './modelo/Editora'
-import Header from './components/Header';
 import './App.css';
+import Data from './components/Header';
 
 function App() {
   const [editora, setEditora] = useState<Editora[]>([{
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <Header/>
+      <Data/>
     </div>
   );
 }
