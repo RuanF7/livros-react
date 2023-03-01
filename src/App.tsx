@@ -1,5 +1,3 @@
-import  { useState } from 'react';
-import { Editora } from './modelo/Editora'
 import './App.css';
 import Data from './components/Header';
 

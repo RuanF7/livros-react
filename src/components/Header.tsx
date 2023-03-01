@@ -1,18 +1,10 @@
 import * as React from 'react';
 import { useState } from 'react';
 import Table from 'react-bootstrap/esm/Table';
+import Button from 'react-bootstrap/Button';
 import data from '../dados.json';
 
 const Data = () => {
-
-  const handleDelete = (livrosId) => {
-    const newLivros = [...livros]
-    const index = livros.findIndex((livros) => livros.codEditora === livrosId);
-
-    newLivros.splice(index, 1);
-
-    setNewLivros(newLivros);
-  };
 
   const [livros, setLivros] = useState(data);
 
@@ -33,18 +25,15 @@ const Data = () => {
             <td>
               {livros.titulo}
 
-              <br/>
-
-              <button
-                type="button"
-                onClick={() => handleDelete(livros.codEditora)}
-              >
+              <br />
+              <Button variant="danger">
                 Excluir
-              </button>
+              </Button>
+
             </td>
             <td>{livros.resumo}</td>
             <td>{livros.editora}</td>
-            <td>{livros.autores}</td>
+            <td><li><ul>{livros.autores}</ul></li></td>
           </tr>
 
         ))}
@@ -54,3 +43,4 @@ const Data = () => {
 }
 
 export default Data;
+
