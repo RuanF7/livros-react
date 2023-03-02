@@ -1,4 +1,7 @@
-export interface Editora {
-  nome: string,
-  codEditora: number,
+
+
+
+export interface IEditora {
+  codEditora: number;
+  nome: string;
 }

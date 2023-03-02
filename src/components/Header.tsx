@@ -4,7 +4,13 @@ import Table from 'react-bootstrap/esm/Table';
 import Button from 'react-bootstrap/Button';
 import data from '../dados.json';
 
-const Data = () => {
+
+interface Props {
+  index: number;
+  handleDelete: (id: number) => void;
+}
+
+const Data:React.FC<Props> = ({handleDelete, index}) => {
 
   const [livros, setLivros] = useState(data);
 
@@ -26,7 +32,10 @@ const Data = () => {
               {livros.titulo}
 
               <br />
-              <Button variant="danger">
+              <Button 
+              variant="danger"
+              onClick={() => handleDelete(livros.id)}              
+              >
                 Excluir
               </Button>
 

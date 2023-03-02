@@ -1,3 +1,17 @@
+import React from 'react';
+import Editora from '../modelo/Editora';
 
 
-export {};
+
+const editoras Array<Editora> = [
+  {
+    nome:"João"
+  },
+  {
+
+  },
+  {
+
+  }
+] 
+
