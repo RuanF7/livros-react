@@ -1,55 +1,13 @@
-import * as React from 'react';
-import { useState } from 'react';
-import Table from 'react-bootstrap/esm/Table';
-import Button from 'react-bootstrap/Button';
-import data from '../dados.json';
+import React from 'react'
+import styles from "./Header.module.css"
 
 
-interface Props {
-  index: number;
-  handleDelete: (id: number) => void;
-}
-
-const Data:React.FC<Props> = ({handleDelete, index}) => {
-
-  const [livros, setLivros] = useState(data);
-
+const Header = () => {
   return (
-
-    <Table striped bordered hover variant="dark">
-      <thead >
-        <tr>
-          <th>Titulo</th>
-          <th>Resumo</th>
-          <th>Editora</th>
-          <th>Autores</th>
-        </tr>
-      </thead>
-      <tbody>
-        {livros.map((livros) => (
-          <tr>
-            <td>
-              {livros.titulo}
-
-              <br />
-              <Button 
-              variant="danger"
-              onClick={() => handleDelete(livros.id)}              
-              >
-                Excluir
-              </Button>
-
-            </td>
-            <td>{livros.resumo}</td>
-            <td>{livros.editora}</td>
-            <td><li><ul>{livros.autores}</ul></li></td>
-          </tr>
-
-        ))}
-      </tbody>
-    </Table>
-  );
+        <header className={styles.header}>
+          <h1>Livraria Alarcon</h1>
+        </header>
+  )
 }
 
-export default Data;
-
+export default Header

@@ -2,8 +2,8 @@
 
 export interface ILivros {
   codEditora: number;
-  codigo: number;
+  editora: string;
   titulo: string;
   resumo: string;
-  autores: [string];
+  autores: string;
 }
