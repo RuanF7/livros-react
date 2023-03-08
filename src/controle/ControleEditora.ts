@@ -2,16 +2,15 @@ import { Editora } from '../modelo/Editora';
 
 export class ControleEditora {
 
-  editoras:Editora[] = [
-      { nome: 'Harry', codEditora: 1 },
-      { nome: 'Harry', codEditora: 2 },
-      { nome: 'Harry', codEditora: 3 }
-    ];
+  editoras: Editora[] = [
+    { nome: 'Rocco', codEditora: 1 },
+    { nome: 'HarperCollins', codEditora: 2 },
+    { nome: 'Intrínseca', codEditora: 3 }
+  ];
 
 
   getNomeEditora(codigo: number) {
-     return this.editoras.filter((editora) => { return editora.codEditora === codigo })
-    
+    return this.editoras.filter((editora) => { return editora.codEditora === codigo })
   }
 
   getEditoras() {

@@ -1,5 +1,5 @@
 
-export class Livros {
+export class Livro {
 
   codEditora: number;
   codigo: number;
