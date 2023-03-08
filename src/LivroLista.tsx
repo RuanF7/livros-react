@@ -1,6 +1,5 @@
 import { ControleLivro } from "./controle/ControleLivros";
 import { ControleEditora } from "./controle/ControleEditora";
-
 import { Livro } from "./modelo/Livro";
 
 interface PropertyLinhaLivro {
@@ -13,9 +12,13 @@ const LinhaLivro = ({ livro }: PropertyLinhaLivro) => {
   return (
     <>
       <tr>
-        <th scope="row">
+        <th>
           <p>{livro.titulo}</p>
-          <button type="button" className="btn btn-danger btn-sm">
+          <button 
+            type="button"
+            className="btn btn-danger btn-sm"
+            onClick={() => (livro.codigo)}
+           >
             Excluir
           </button>
         </th>
