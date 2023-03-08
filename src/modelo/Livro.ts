@@ -1,9 +1,24 @@
 
+export class Livros {
 
-export interface ILivros {
   codEditora: number;
-  editora: string;
+  codigo: number;
   titulo: string;
   resumo: string;
-  autores: string;
+  autores: string[];
+
+  constructor(
+    codigo: number,
+    codEditora: number,
+    titulo: string,
+    autores: string[],
+    resumo: string
+
+  ) {
+    this.codigo = codigo;
+    this.codEditora = codEditora;
+    this.titulo = titulo;
+    this.autores = autores;
+    this.resumo = resumo;
+  }
 }
