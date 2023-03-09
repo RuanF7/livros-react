@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LivroDados from './LivroDados';
+import { LivroDados } from './LivroDados';
 import LivroLista from './LivroLista'
 
 const App = () => {

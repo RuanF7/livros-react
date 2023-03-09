@@ -1,10 +1,14 @@
 import { ControleLivro } from "./controle/ControleLivros";
 import { ControleEditora } from "./controle/ControleEditora";
 import { Livro } from "./modelo/Livro";
+import { useEffect, useState } from "react";
+import { LivroDados } from "./LivroDados";
 
-interface PropertyLinhaLivro {
+type PropertyLinhaLivro = {
   livro: Livro;
 };
+
+const livros = new ControleLivro();
 
 const LinhaLivro = ({ livro }: PropertyLinhaLivro) => {
   const editora = new ControleEditora();
@@ -14,11 +18,11 @@ const LinhaLivro = ({ livro }: PropertyLinhaLivro) => {
       <tr>
         <th>
           <p>{livro.titulo}</p>
-          <button 
+          <button
             type="button"
             className="btn btn-danger btn-sm"
-            onClick={() => (livro.codigo)}
-           >
+            onClick={()=>deleteBook(book.editora)}
+          >
             Excluir
           </button>
         </th>
@@ -41,7 +45,12 @@ const LinhaLivro = ({ livro }: PropertyLinhaLivro) => {
 };
 
 export default function LivroLista() {
-  const livrosArmazenados = new ControleLivro();
+  const [livrosArmazenados, setLivrosArmazenados] = useState<Livro[]>(livros.obterLivros());
+
+  useEffect(() => {
+    setLivrosArmazenados(livros.obterLivros());
+  }, []);
+  
   return (
     <main className="container">
       <h1>Catálogo de Livros</h1>
@@ -55,8 +64,9 @@ export default function LivroLista() {
           </tr>
         </thead>
         <tbody>
-          {livrosArmazenados.obterLivros().map((livro) => {
-            return <LinhaLivro key={livro.codigo} livro={livro} />;
+          {livrosArmazenados.map((livro) => {
+            return (<LinhaLivro key={livro.codigo} livro={livro} />
+            );
           })}
         </tbody>
       </table>
