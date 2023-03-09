@@ -18,8 +18,8 @@ const App = () => {
         </div>
       </nav>
       <Routes>
-        <Route path='root' element={<LivroLista />} />
-        <Route path='dados' element={<LivroDados />} />
+        <Route path='dados' element={<LivroLista />} />
+        <Route path='root' element={<LivroDados />} />
       </Routes>
     </BrowserRouter>
 
