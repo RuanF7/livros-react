@@ -1,6 +1,11 @@
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { LivroDados } from './LivroDados';
+import { ControleLivro } from './controle/ControleLivros';
+import LivroDados from './LivroDados';
 import LivroLista from './LivroLista'
+
+
+const livros = new ControleLivro();
 
 const App = () => {
   return (
@@ -18,8 +23,9 @@ const App = () => {
         </div>
       </nav>
       <Routes>
-        <Route path='dados' element={<LivroLista />} />
-        <Route path='root' element={<LivroDados />} />
+        <Route path="/" element={<LivroLista livros={livros} />} />
+        <Route path='dados' element={<LivroLista livros={livros} />} />
+        <Route path='root' element={<LivroDados livros={livros} />} />
       </Routes>
     </BrowserRouter>
 
