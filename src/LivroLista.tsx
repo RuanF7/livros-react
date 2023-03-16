@@ -3,18 +3,20 @@ import { ControleEditora } from "./controle/ControleEditora";
 import { Livro } from "./modelo/Livro";
 import { useEffect, useState } from "react";
 
-type PropertyLinhaLivro = {
+type LinhaLivroProps = {
   livro: Livro;
   prateleira: ControleLivro;
+  carregar: React.Dispatch<React.SetStateAction<boolean>>;
+
 };
 
-type Property = {
+type Props = {
   livros: ControleLivro;
 };
 
 
-const LinhaLivro = ({ livro, prateleira }: PropertyLinhaLivro) => {
-  const editora = new ControleEditora();
+const LinhaLivro = ({ livro, prateleira, carregar }: LinhaLivroProps) => {
+  const editoras = new ControleEditora();
 
   return (
     <>
@@ -24,15 +26,17 @@ const LinhaLivro = ({ livro, prateleira }: PropertyLinhaLivro) => {
           <button
             type="button"
             className="btn btn-danger btn-sm"
-            onClick={() => 
-              prateleira.excluir(livro.codigo)}
+            onClick={() => {
+              prateleira.excluir(livro.codigo);
+              carregar(true);
+            }}
           >
             Excluir
           </button>
         </th>
         <td>{livro.resumo}</td>
         <td>
-          {editora.getNomeEditora(livro.codEditora).map((nomeEditora) => {
+          {editoras.getNomeEditora(livro.codEditora).map((nomeEditora) => {
             return nomeEditora.nome;
           })}
         </td>
@@ -48,12 +52,14 @@ const LinhaLivro = ({ livro, prateleira }: PropertyLinhaLivro) => {
   );
 };
 
-export default function LivroLista({ livros }: Property) {
+export default function LivroLista({ livros }: Props) {
   const [livrosArmazenados, setLivrosArmazenados] = useState<Livro[]>(livros.obterLivros());
+  const [carregar, setCarregar] = useState<boolean>(false);
 
   useEffect(() => {
     setLivrosArmazenados(livros.obterLivros());
-  },[livros]);
+    setCarregar(false);
+  }, [carregar, livros]);
   
   return (
     <main className="container">
@@ -68,8 +74,8 @@ export default function LivroLista({ livros }: Property) {
           </tr>
         </thead>
         <tbody>
-          {livrosArmazenados.map((livro) => {
-            return (<LinhaLivro key={livro.codigo} livro={livro} prateleira={livros}/>
+          {livrosArmazenados.map((livro, index) => {
+            return (<LinhaLivro key={index} livro={livro} prateleira={livros} carregar={setCarregar} />
             );
           })}
         </tbody>

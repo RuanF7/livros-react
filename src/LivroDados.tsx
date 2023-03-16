@@ -22,7 +22,7 @@ export default function LivroDados({ livros }: Props) {
 
     const novoLivro = new Livro(1, editora, titulo, resumo, []);
     livros.incluir(novoLivro);
-    navigate("/catalogo");
+    navigate("/dados");
   }
 
   return (
@@ -30,7 +30,6 @@ export default function LivroDados({ livros }: Props) {
       <main className="container">
         <h1>Dados Livro</h1>
         <form onSubmit={(event) => cadastrarLivro(event)}>
-          {/* Input Titulo: Inicio */}
           <div className="form-group">
             <label htmlFor="titulo">Título</label>
             <input
@@ -42,9 +41,7 @@ export default function LivroDados({ livros }: Props) {
               placeholder="Titulo do livro"
             />
           </div>
-          {/* Input Titulo: Fim */}
 
-          {/* Text Area Resumo: Inicio */}
           <div className="form-group mt-2">
             <label htmlFor="resumo">Resumo</label>
             <textarea
@@ -55,9 +52,7 @@ export default function LivroDados({ livros }: Props) {
               rows={3}
             ></textarea>
           </div>
-          {/* Text Area Resumo: Fim */}
 
-          {/* Select Editora: Inicio */}
           <div className="form-group mt-2">
             <label htmlFor="editora">Editora</label>
             <select
@@ -75,14 +70,11 @@ export default function LivroDados({ livros }: Props) {
               })}
             </select>
           </div>
-          {/* Select Editora: Fim */}
 
-          {/* TextArea Autores: Inicio */}
           <div className="form-group mt-2">
             <label htmlFor="autores">Autores (1 por linha)</label>
             <textarea id="autores" className="form-control" rows={3}></textarea>
           </div>
-          {/* Text Area Autores: Fim */}
 
           <button type="submit" className="btn btn-primary mt-2">
             Salvar dados

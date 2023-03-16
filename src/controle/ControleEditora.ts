@@ -9,8 +9,8 @@ export class ControleEditora {
   ];
 
 
-  getNomeEditora(codigo: number) {
-    return this.editoras.filter((editora) => { return editora.codEditora === codigo })
+  getNomeEditora(codigoEditora: number) {
+    return this.editoras.filter((editora) => { return editora.codEditora === codigoEditora })
   }
 
   getEditoras() {

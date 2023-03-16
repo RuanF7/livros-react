@@ -1,8 +1,8 @@
 
 export class Livro {
-
-  codEditora: number;
+  
   codigo: number;
+  codEditora: number;
   titulo: string;
   resumo: string;
   autores: string[];
