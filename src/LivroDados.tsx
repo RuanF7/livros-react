@@ -15,6 +15,9 @@ export default function LivroDados({ livros }: Props) {
   const [editora, setEditora] = useState<number>(1);
   const [autores, setAutores] = useState<string>("");
 
+/*
+ Incluir, cadastrar e navegar entre aspáginas
+ */
 
   const navigate = useNavigate();
   const todasEditoras = new ControleEditora();
@@ -26,6 +29,10 @@ export default function LivroDados({ livros }: Props) {
     livros.incluir(novoLivro);
     navigate("/dados");
   }
+
+ /*
+  Formulário de dados dos livros para serem enviados ao catálogo
+  */
 
   return (
     <React.Fragment>

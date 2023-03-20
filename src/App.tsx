@@ -4,6 +4,9 @@ import { ControleLivro } from './controle/ControleLivros';
 import LivroDados from './LivroDados';
 import LivroLista from './LivroLista'
 
+/*
+Menu com navegação entre as páginas
+*/
 
 const livros = new ControleLivro();
 

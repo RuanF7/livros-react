@@ -18,6 +18,10 @@ type Props = {
 const LinhaLivro = ({ livro, prateleira, carregar }: LinhaLivroProps) => {
   const editoras = new ControleEditora();
 
+/*
+  Página de catalogo de livros com botão excluir
+*/
+
   return (
     <>
       <tr>

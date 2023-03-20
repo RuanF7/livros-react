@@ -1,5 +1,8 @@
 import { Livro } from '../modelo/Livro';
 
+/*
+ Classe controle livros com 3 arrays Json cadastrados
+*/
 export class ControleLivro {
   livros: Livro[] = [
     {
@@ -25,7 +28,9 @@ export class ControleLivro {
     }
   ];
 
-
+/*
+Métodos obter os livros, inclusão de livros e exclusão de livros
+*/
   obterLivros() {
     return this.livros;
   }
